@@ -1,0 +1,30 @@
+{
+  "name": "gulp-xto6",
+  "version": "0.0.1",
+  "description": "gulp plugin for xto6.Turn your ES5 code into readable ES6.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yudppp/gulp-xto6.git"
+  },
+  "keywords": [
+    "es5",
+    "es6",
+    "transpiler",
+    "transpile"
+  ],
+  "author": "yudppp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yudppp/gulp-xto6/issues"
+  },
+  "homepage": "https://github.com/yudppp/gulp-xto6",
+  "dependencies": {
+    "gulp-util": "^3.0.4",
+    "through2": "^0.6.3",
+    "xto6": "^1.0.6-alpha"
+  }
+}
