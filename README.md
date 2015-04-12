@@ -16,9 +16,12 @@ Quick Start
 ---
 
 ```js
+var gulp = require('gulp');
 var xto6 = require('gulp-xto6')
 
-gulp.src('path/to/es5/*.js')
-  .pipe(xto6())
-  .pipe(gulp.dest('paht/to/es6/'));
+gulp.task('default', function () {
+  return gulp.src('path/to/es5/*.js')
+    .pipe(xto6())
+    .pipe(gulp.dest('paht/to/es6/'));
+});
 ```

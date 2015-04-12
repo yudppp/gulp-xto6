@@ -26,6 +26,6 @@
   "dependencies": {
     "gulp-util": "^3.0.4",
     "through2": "^0.6.3",
-    "xto6": "^1.0.6-alpha"
+    "xto6": "^1.0.7-alpha"
   }
 }
