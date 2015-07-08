@@ -1,4 +1,4 @@
-[![License](http://img.shields.io/:license-mit-brightgreen.svg?style=flat)](http://mohebifar.mit-license.org)
+[![License](http://img.shields.io/:license-mit-brightgreen.svg?style=flat)](http://yudppp.mit-license.org)
 
 # gulp-xto6
 
@@ -20,8 +20,8 @@ var gulp = require('gulp');
 var xto6 = require('gulp-xto6')
 
 gulp.task('default', function () {
-  return gulp.src('path/to/es5/*.js')
+  return gulp.src('path/to/fixtures/es5/*.js')
     .pipe(xto6())
-    .pipe(gulp.dest('paht/to/es6/'));
+    .pipe(gulp.dest('path/to/fixtures/es6/'));
 });
 ```

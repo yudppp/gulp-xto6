@@ -1,6 +1,5 @@
 var gutil = require('gulp-util');
 var through = require('through2');
-var classTransformation = require('./node_modules/xto6/lib/transformation/classes');
 var Transformer = require('./node_modules/xto6/lib/transformer');
 var transformer = new Transformer();
 
@@ -13,7 +12,7 @@ var transform = function(file, encoding, callback) {
   }
 
   transformer.read(file.contents.toString());
-  transformer.applyTransformation(classTransformation);
+  transformer.applyTransformations();
   file.contents = new Buffer(transformer.out());
 
   return callback(null, file);

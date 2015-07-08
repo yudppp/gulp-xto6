@@ -4,7 +4,7 @@
   "description": "gulp plugin for xto6.Turn your ES5 code into readable ES6.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout=3000 --reporter=spec test/test.js"
   },
   "repository": {
     "type": "git",
