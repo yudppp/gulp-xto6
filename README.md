@@ -1,4 +1,4 @@
-[![License](http://img.shields.io/:license-mit-brightgreen.svg?style=flat)](http://yudppp.mit-license.org)
+[![Build Status](https://img.shields.io/travis/yudppp/gulp-xto6.svg?style=flat-square)](http://travis-ci.org/yudppp/gulp-xto6)[![License](http://img.shields.io/:license-mit-brightgreen.svg?style=flat-square)](http://yudppp.mit-license.org)
 
 # gulp-xto6
 

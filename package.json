@@ -1,6 +1,6 @@
 {
   "name": "gulp-xto6",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "gulp plugin for xto6.Turn your ES5 code into readable ES6.",
   "main": "index.js",
   "scripts": {
@@ -28,5 +28,8 @@
     "gulp-util": "^3.0.4",
     "through2": "^0.6.3",
     "xto6": "^1.1.2-alpha"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
   }
 }
