@@ -1,25 +1,29 @@
-var gutil = require('gulp-util');
-var through = require('through2');
-var Transformer = require('./node_modules/xto6/lib/transformer');
-var transformer = new Transformer();
+var gutil       = require('gulp-util');
+var through     = require('through2');
+var Transformer = require('xto6/lib/transformer');
 
-var transform = function(file, encoding, callback) {
-  if (file.isNull()) {
-    return callback(null, file);
-  }
-  if (file.isStream()) {
-    return callback(new gutil.PluginError('gulp-xto6', 'Stream not supported'));
-  }
+module.exports = function() {
 
-  transformer.read(file.contents.toString());
-  transformer.applyTransformations();
-  file.contents = new Buffer(transformer.out());
+  return through.obj(function(file, encoding, callback) {
 
-  return callback(null, file);
-};
+    if (file.isNull()) {
+      return callback(null, file);
+    }
 
-var gulpXto6 = function() {
-  return through.obj(transform);
-};
+    if (file.isStream()) {
+      return callback(new gutil.PluginError('gulp-xto6', 'Streaming not supported'));
+    }
 
-module.exports = gulpXto6;
+    try {
+      var transformer = new Transformer();
+      transformer.read(file.contents.toString());
+      transformer.applyTransformations();
+      file.contents = new Buffer(transformer.out());
+      this.push(file);
+    } catch(error) {
+      this.emit('error', new gutil.PluginError('gulp-xto6', error, {fileName: file.path, showProperties: false}));
+    }
+
+    callback();
+  });
+};;
