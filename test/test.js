@@ -1,5 +1,7 @@
 'use strict';
 
+var fs     = require('fs');
+var path   = require('path');
 var assert = require('power-assert');
 var gutil  = require('gulp-util');
 var xto6   = require('../')
@@ -8,18 +10,23 @@ describe('gulp-xto6', function() {
 
   it('should work in buffer mode', function(done) {
 
-    var es5File = new gutil.File({
-      contents: new Buffer('function x(a) { a = a || 2; return \'answer: \'+a; }')
+    var before = path.join(__dirname, '/fixtures/es5/sample.js');
+    var after  = path.join(__dirname, '/fixtures/es6/sample.js');
+
+    var stream = xto6({
+      formatter: true
     });
 
-    var stream = xto6();
-    stream.write(es5File);
+    stream.write(new gutil.File({
+      contents: fs.readFileSync(before)
+    }));
+
     stream.on('data', function(file) {
       assert(file.isBuffer());
-      // use default-arguments and template string
-      assert.equal(file.contents.toString('utf8'), 'function x(a = 2) {\n    return `answer: ${ a }`;\n}');
+      assert.equal(file.contents.toString(), fs.readFileSync(after).toString());
       done();
     });
+
     stream.end();
   });
 });
