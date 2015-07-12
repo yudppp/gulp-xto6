@@ -22,7 +22,7 @@ Quick Start
 
 ```js
 var gulp = require('gulp');
-var xto6 = require('gulp-xto6')
+var xto6 = require('gulp-xto6');
 
 gulp.task('default', function () {
   return gulp.src('path/to/fixtures/es5/*.js')
