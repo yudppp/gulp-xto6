@@ -2,7 +2,9 @@ var gutil       = require('gulp-util');
 var through     = require('through2');
 var Transformer = require('xto6/lib/transformer');
 
-module.exports = function() {
+module.exports = function(options) {
+
+  options = options || {};
 
   return through.obj(function(file, encoding, callback) {
 
@@ -15,7 +17,7 @@ module.exports = function() {
     }
 
     try {
-      var transformer = new Transformer();
+      var transformer = new Transformer(options);
       transformer.read(file.contents.toString());
       transformer.applyTransformations();
       file.contents = new Buffer(transformer.out());
